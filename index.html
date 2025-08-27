@@ -260,6 +260,55 @@
       historyList.prepend(row);
     }
 
+     // ------- Event Delegation for Card Buttons -------
+    listEl.addEventListener('click', async (e) => {
+      const likeBtn = e.target.closest('.like-btn');
+      const copyBtn = e.target.closest('.copy-btn');
+      const callBtn = e.target.closest('.call-btn');
+
+      if (likeBtn) {
+        heartCount += 1;
+        updateCounters();
+        return;
+      }
+
+      if (copyBtn) {
+        const num = copyBtn.dataset.number;
+        const name = copyBtn.dataset.name;
+        const ok = await copyToClipboard(num);
+        if (ok) {
+          alert(`Copied ${name} number: ${num}`);
+          copyCount += 1;
+          updateCounters();
+        } else {
+          alert('Copy failed. Please copy manually.');
+        }
+        return;
+      }
+
+      if (callBtn) {
+        const num = callBtn.dataset.number;
+        const name = callBtn.dataset.name;
+
+        if (coinCount < 20) {
+          alert('Not enough coins to place a call. You need at least 20 coins.');
+          return;
+        }
+
+        // Deduct coins and confirm call
+        coinCount -= 20;
+        updateCounters();
+        alert(`Calling ${name} ( ${num} )...`);
+        addHistoryItem(name, num);
+        return;
+      }
+    });
+
+    
+
+
+
+
 
 
 
