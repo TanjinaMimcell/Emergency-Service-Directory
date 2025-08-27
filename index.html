@@ -304,6 +304,13 @@
       }
     });
 
+     // ------- Clear History -------
+    document.getElementById('clearHistoryBtn').addEventListener('click', () => {
+      historyList.innerHTML = '';
+      showHistoryEmpty(true);
+    });
+
+
     
 
 
