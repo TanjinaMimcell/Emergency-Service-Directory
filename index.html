@@ -73,6 +73,43 @@
     </div>
   </section>
 
+  <!-- Main section including history section and carts section -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <!-- Cards (span 3 cols on desktop) -->
+    <section class="lg:col-span-3">
+      <!-- Heading removed -->
+      <div id="cardList" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- History -->
+    <aside class="lg:col-span-1">
+      <div class="bg-white rounded-2xl shadow border border-slate-200 p-4 h-full flex flex-col">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <img src="assets/history.png" alt="history" class="h-10 w-10 object-contain" />
+            <h3 class="font-semibold">Call History</h3>
+          </div>
+          <button id="clearHistoryBtn" 
+  class="text-sm px-4 py-1.5 bg-[#00A63E] text-white rounded-full hover:bg-green-700 active:scale-[.98]">
+  Clear
+</button>
+
+
+        </div>
+        <div id="historyList" class="flex-1 overflow-y-auto pr-1 space-y-3">
+          <p id="historyEmpty" class="text-sm text-slate-500">No calls yet.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+
+
+
+
+
 
 
 
