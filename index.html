@@ -156,7 +156,7 @@
 
 
   <script>
-    // ------- Data -------
+    // ------- card Data -------
     const services = [
       { id: 'national', icon: '🚨', name: 'National Emergency Number', en: 'National Emergency ', category: 'All', number: '999' },
       { id: 'police', icon: '👮', name: 'Police Helpline Number', en: 'Police ', category: 'Police',number: '999' },
@@ -168,6 +168,48 @@
       { id: 'brac', icon: '🏥', name: 'Brac Helpline', en: 'Brac ', number: '16445', category: 'NGO' },
       { id: 'railway', icon: '🚆', name: 'Bangladesh Railway Helpline', en: 'Bangladesh Railway ', number: '163', category: 'travel' },
     ];
+
+        let heartCount = 0;
+    let coinCount = 100; // default
+    let copyCount = 0;
+
+    const heartEl = document.getElementById('heartCount');
+    const coinEl = document.getElementById('coinCount');
+    const copyEl = document.getElementById('copyCount');
+    const listEl = document.getElementById('cardList');
+    const historyList = document.getElementById('historyList');
+    const historyEmpty = document.getElementById('historyEmpty');
+
+     // ------- Render Cards -------
+    function renderCards() {
+      const tpl = document.getElementById('cardTemplate');
+      services.slice(0, 9).forEach(svc => {
+        const node = tpl.content.cloneNode(true);
+        node.querySelector('.icon').textContent = svc.icon;
+        node.querySelector('.name').textContent = svc.name;
+        node.querySelector('.en-name').textContent = svc.en;
+        node.querySelector('.category').textContent = svc.category;
+        node.querySelector('.number').textContent = svc.number;
+        
+        // add data attributes for delegation
+        node.querySelector('.like-btn').dataset.id = svc.id;
+        node.querySelector('.copy-btn').dataset.id = svc.id;
+        node.querySelector('.copy-btn').dataset.number = svc.number;
+        node.querySelector('.copy-btn').dataset.name = svc.en;
+        node.querySelector('.call-btn').dataset.id = svc.id;
+        node.querySelector('.call-btn').dataset.number = svc.number;
+        node.querySelector('.call-btn').dataset.name = svc.en;
+
+        listEl.appendChild(node);
+      });
+    }
+
+
+   
+  </script>
+
+
+
 
 
 
